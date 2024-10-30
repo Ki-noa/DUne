@@ -92,4 +92,24 @@ typedef struct {
 	int speed;	// 다음에 움직일 시간
 } OBJECT_SAMPLE;
 
+
+typedef struct {
+	char* name;         // 건물 이름
+	int build_cost;     // 건설 비용
+	int capacity;       // 내구도
+	char* description;  // 설명
+	char command_key;   // 명령어 단축키
+} BUILDING;
+
+typedef struct {
+	char* name;         // 유닛 이름
+	int production_cost; // 생산 비용
+	int population;     // 인구 수
+	int move_speed;     // 이동 주기
+	int attack;         // 공격력
+	int range;          // 공격 주기
+	int health;         // 체력
+	int sight;          // 시야
+	char command_key;   // 명령어 단축키
+} UNIT;
 #endif
