@@ -3,8 +3,6 @@
 */
 #include "io.h"
 
-
-/* ===================== 커서이동 함수 =======================*/
 void gotoxy(POSITION pos) {
 	COORD coord = { pos.column, pos.row }; // 행, 열 반대로 전달
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
