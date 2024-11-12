@@ -13,7 +13,6 @@
 // 표시할 색상 정의. 대충 맞춰 뒀는데, 취향껏 추가하거나 변경하기
 #define COLOR_DEFAULT	15
 #define COLOR_CURSOR	112
-#define COLOR_RESOURCE  112
 
 #define COLOR_BACKGROUND_WHITE 240 // 흰색 배경 색상 코드
 #define COLOR_DEFAULT    15  // 기본 색상 (흰색)
