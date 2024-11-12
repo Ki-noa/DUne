@@ -101,7 +101,7 @@ void display_map(char map[N_LAYER][MAP_HEIGHT][MAP_WIDTH]) {
         }
 
         // 지형 요소 배치 (경계 안쪽에 배치)
-        map[0][MAP_HEIGHT - 2][1] = 'B';    // 아트레이디스 본진(파란색)
+        map[0][MAP_HEIGHT - 2][1] = 'B';    // 아트레이디스 본진(파란색)s
         map[0][MAP_HEIGHT - 2][2] = 'B';
         map[0][MAP_HEIGHT - 3][1] = 'B';
         map[0][MAP_HEIGHT - 3][2] = 'B';
@@ -161,13 +161,13 @@ void display_map(char map[N_LAYER][MAP_HEIGHT][MAP_WIDTH]) {
             int color = COLOR_DEFAULT;
 
             // 7시 방향 영역의 모든 건물과 유닛을 파란색으로 표시
-            if ((i >= MAP_HEIGHT - 4 && i <= MAP_HEIGHT - 2) && (j >= 1 && j <= 4)) {
+            if ((i >= MAP_HEIGHT - 4 && i <= MAP_HEIGHT - 2) && (j >= 1 && j <= 2)) {
                 if (backbuf[i][j] == 'B' || backbuf[i][j] == 'H' || backbuf[i][j] == 'b' || backbuf[i][j] == 'h') {
                     color = COLOR_PLAYER;
                 }
             }
             // 1시 방향 영역의 모든 건물과 유닛을 빨간색으로 표시
-            else if ((i >= 1 && i <= 3) && (j >= MAP_WIDTH - 5 && j <= MAP_WIDTH - 2)) {
+            else if ((i >= 1 && i <= 3) && (j >= MAP_WIDTH - 3 && j <= MAP_WIDTH - 2)) {
                 if (backbuf[i][j] == 'B' || backbuf[i][j] == 'H' || backbuf[i][j] == 'b' || backbuf[i][j] == 'h') {
                     color = COLOR_AI;
                 }
