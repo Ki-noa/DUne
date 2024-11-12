@@ -104,7 +104,8 @@ typedef struct {
 /* ================= 유닛 정보 구조체 ================= */
 typedef struct {
 	char name[20];       // 유닛 이름
-	char shortcut;       // 단축키
+	char shortcut1;       // 단축키
+	char shortcut2;       // 단축키
 	int production_cost; // 생산 비용
 	int population_cost; // 인구수 요구량
 	int movement_speed;  // 이동 속도

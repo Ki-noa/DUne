@@ -15,11 +15,12 @@
 #define COLOR_CURSOR	112
 #define COLOR_RESOURCE  112
 
+#define COLOR_BACKGROUND_WHITE 240 // 흰색 배경 색상 코드
 #define COLOR_DEFAULT    15  // 기본 색상 (흰색)
 #define COLOR_CURSOR     112 // 커서 색상
 #define COLOR_RESOURCE   14  // 자원 표시 색상 (노란색)
 #define COLOR_PLAYER     9   // 플레이어 본진 색상 (파란색)
-#define COLOR_PLATE      2   // 장판 색상 (검은색)
+#define COLOR_PLATE      2   // 장판 색상 (초록색)
 #define COLOR_AI         12  // AI 하베스터 색상 (빨간색)
 #define COLOR_SANDWORM   6   // 샌드웜 색상 (황토색)
 #define COLOR_SPICE      14  // 스파이스 색상 (노란색)

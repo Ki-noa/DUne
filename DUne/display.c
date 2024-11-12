@@ -107,55 +107,49 @@ void display_map(char map[N_LAYER][MAP_HEIGHT][MAP_WIDTH]) {
         map[0][MAP_HEIGHT - 3][2] = 'B';
 
         map[0][MAP_HEIGHT - 2][3] = 'P';    // 아트레이디스 본진 하단 장판
-        map[0][MAP_HEIGHT - 2][4] = 'P';    // 아트레이디스 본진 하단 장판
-        map[0][MAP_HEIGHT - 3][3] = 'P';    // 아트레이디스 본진 하단 장판
-        map[0][MAP_HEIGHT - 3][4] = 'P';    // 아트레이디스 본진 하단 장판
+        map[0][MAP_HEIGHT - 2][4] = 'P';
+        map[0][MAP_HEIGHT - 3][3] = 'P';
+        map[0][MAP_HEIGHT - 3][4] = 'P';
 
         map[0][MAP_HEIGHT - 4][1] = 'H';    // 아트레이디스 하베스터
 
         map[0][MAP_HEIGHT - 6][1] = '5';    // 왼쪽 상단 스파이스
 
-        map[0][5][MAP_WIDTH / 4] = 'W';   // 샌드웜
+        map[0][5][MAP_WIDTH / 4] = 'W';     // 샌드웜
 
         map[0][MAP_HEIGHT - 6][7] = 'R';    // 아트레이디스 본진 Rock
 
-        /*-------------------------------------------------------------------------*/
+        // 하코넨 본진 배치 (1시 방향)
+        map[0][1][MAP_WIDTH - 2] = 'B';
+        map[0][1][MAP_WIDTH - 3] = 'B';
+        map[0][2][MAP_WIDTH - 2] = 'B';
+        map[0][2][MAP_WIDTH - 3] = 'B';
 
-        map[0][1][MAP_WIDTH - 2] = 'B';                 // 하코넨 본진(빨간색)
-        map[0][1][MAP_WIDTH - 3] = 'B';                 // 하코넨 본진(빨간색)
-        map[0][2][MAP_WIDTH - 2] = 'B';                 // 하코넨 본진(빨간색)
-        map[0][2][MAP_WIDTH - 3] = 'B';                 // 하코넨 본진(빨간색)
+        map[0][1][MAP_WIDTH - 4] = 'P';
+        map[0][1][MAP_WIDTH - 5] = 'P';
+        map[0][2][MAP_WIDTH - 4] = 'P';
+        map[0][2][MAP_WIDTH - 5] = 'P';
 
-        map[0][1][MAP_WIDTH - 4] = 'P';                 // 하코넨 본진 하단 장판
-        map[0][1][MAP_WIDTH - 5] = 'P';                 // 하코넨 본진 하단 장판
-        map[0][2][MAP_WIDTH - 4] = 'P';                 // 하코넨 본진 하단 장판
-        map[0][2][MAP_WIDTH - 5] = 'P';                 // 하코넨 본진 하단 장판
+        map[0][3][MAP_WIDTH - 2] = 'H';
 
-        map[0][3][MAP_WIDTH - 2] = 'H';                 // 하코넨 하베스터
+        map[0][5][MAP_WIDTH - 2] = '5';
 
-        map[0][5][MAP_WIDTH - 2] = '5';                 // 오른쪽 상단 스파이스
+        map[0][MAP_HEIGHT - 5][MAP_WIDTH - MAP_WIDTH / 4] = 'W';
 
-        map[0][MAP_HEIGHT - 5][MAP_WIDTH - MAP_WIDTH / 4] = 'W';    // 샌드웜
- 
-        map[0][5][MAP_WIDTH - 7] = 'R';                 // 하코넨 본진 Rock
-
-        /*-------------------------------------------------------------------------*/
+        map[0][5][MAP_WIDTH - 7] = 'R';
 
         // 바위 배치
+        map[0][MAP_HEIGHT - 4][MAP_WIDTH - 9] = 'R';
 
-        map[0][MAP_HEIGHT - 4][MAP_WIDTH - 9] = 'R';    // 7시 Rock
+        map[0][7][MAP_WIDTH / 2 - 1] = 'R';
+        map[0][7][MAP_WIDTH / 2] = 'R';
+        map[0][8][MAP_WIDTH / 2 - 1] = 'R';
+        map[0][8][MAP_WIDTH / 2] = 'R';
 
-        map[0][7][MAP_WIDTH / 2 - 1] = 'R';    // 좌측 중간 Rock
-        map[0][7][MAP_WIDTH / 2] = 'R';    // 좌측 중간 Rock
-        map[0][8][MAP_WIDTH / 2 - 1] = 'R';    // 좌측 중간 Rock
-        map[0][8][MAP_WIDTH / 2] = 'R';    // 좌측 중간 Rock
-
-
-        map[0][MAP_HEIGHT - 7][MAP_WIDTH - MAP_WIDTH / 2 -1] = 'R';    // 우측 중간 Rock
-        map[0][MAP_HEIGHT - 7][MAP_WIDTH - MAP_WIDTH / 2] = 'R';    // 우측 중간 Rock
-        map[0][MAP_HEIGHT - 8][MAP_WIDTH - MAP_WIDTH / 2 -1] = 'R';    // 우측 중간 Rock
-        map[0][MAP_HEIGHT - 8][MAP_WIDTH - MAP_WIDTH / 2 ] = 'R';    // 우측 중간 Rock
-
+        map[0][MAP_HEIGHT - 7][MAP_WIDTH - MAP_WIDTH / 2 - 1] = 'R';
+        map[0][MAP_HEIGHT - 7][MAP_WIDTH - MAP_WIDTH / 2] = 'R';
+        map[0][MAP_HEIGHT - 8][MAP_WIDTH - MAP_WIDTH / 2 - 1] = 'R';
+        map[0][MAP_HEIGHT - 8][MAP_WIDTH - MAP_WIDTH / 2] = 'R';
 
         initialized = true; // 초기화를 완료했음을 표시
     }
@@ -165,15 +159,31 @@ void display_map(char map[N_LAYER][MAP_HEIGHT][MAP_WIDTH]) {
     for (int i = 0; i < MAP_HEIGHT; i++) {
         for (int j = 0; j < MAP_WIDTH; j++) {
             int color = COLOR_DEFAULT;
-            switch (backbuf[i][j]) {
-            case 'B': color = COLOR_PLAYER; break;   // 본진 색상 (파란색)
-            case 'H': color = COLOR_AI; break;       // 하베스터 색상 (빨간색)
-            case 'P': color = COLOR_PLATE; break;    // 장판 색상 (검은색)
-            case '5': color = COLOR_SPICE; break;    // 스파이스 색상 (주황색)
-            case 'W': color = COLOR_SANDWORM; break; // 샌드웜 색상 (황토색)
-            case 'R': color = COLOR_ROCK; break;     // 바위 색상 (회색)
-            case '#': color = COLOR_DEFAULT; break;  // 경계선 색상 (기본 색상)
-            default: color = COLOR_DEFAULT; break;   // 기본 색상
+
+            // 7시 방향 영역의 모든 건물과 유닛을 파란색으로 표시
+            if ((i >= MAP_HEIGHT - 4 && i <= MAP_HEIGHT - 2) && (j >= 1 && j <= 4)) {
+                if (backbuf[i][j] == 'B' || backbuf[i][j] == 'H' || backbuf[i][j] == 'b' || backbuf[i][j] == 'h') {
+                    color = COLOR_PLAYER;
+                }
+            }
+            // 1시 방향 영역의 모든 건물과 유닛을 빨간색으로 표시
+            else if ((i >= 1 && i <= 3) && (j >= MAP_WIDTH - 5 && j <= MAP_WIDTH - 2)) {
+                if (backbuf[i][j] == 'B' || backbuf[i][j] == 'H' || backbuf[i][j] == 'b' || backbuf[i][j] == 'h') {
+                    color = COLOR_AI;
+                }
+            }
+            else {
+                // 나머지 기본 색상 설정
+                switch (backbuf[i][j]) {
+                case 'B': color = COLOR_PLAYER; break;   // 기본 본진 색상
+                case 'H': color = COLOR_AI; break;       // 기본 하베스터 색상
+                case 'P': color = COLOR_PLATE; break;    // 장판 색상
+                case '5': color = COLOR_SPICE; break;    // 스파이스 색상
+                case 'W': color = COLOR_SANDWORM; break; // 샌드웜 색상
+                case 'R': color = COLOR_ROCK; break;     // 바위 색상
+                case '#': color = COLOR_DEFAULT; break;  // 경계선 색상
+                default: color = COLOR_DEFAULT; break;
+                }
             }
 
             if (frontbuf[i][j] != backbuf[i][j]) {
@@ -186,8 +196,9 @@ void display_map(char map[N_LAYER][MAP_HEIGHT][MAP_WIDTH]) {
 }
 
 
+
 // frontbuf[][]에서 커서 위치의 문자를 색만 바꿔서 그대로 다시 출력
-void display_cursor(CURSOR cursor) {
+void display_cursor(CURSOR cursor){
 	POSITION prev = cursor.previous;
 	POSITION curr = cursor.current;
 
