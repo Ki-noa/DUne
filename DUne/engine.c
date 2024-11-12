@@ -70,6 +70,8 @@ int main(void) {
 		Sleep(TICK);
 		sys_clock += 10;
 	}
+
+	outro();
 }
 
 /* ================= subfunctions =================== */
@@ -80,7 +82,7 @@ void intro(void) {
 }
 
 void outro(void) {
-	printf("exiting...\n");
+	printf("끝났습니다.\n");
 	exit(0);
 }
 

@@ -15,6 +15,10 @@
 #define COLOR_CURSOR	112
 #define COLOR_RESOURCE  112
 
+void display_system_message(const char* message);
+void display_status_message(const char* message);
+void display_command_message(const char* message);
+
 // 지금은 자원, 맵, 커서만 표시
 // 앞으로 화면에 표시할 내용들 여기에 추가하기
 void display(

@@ -11,7 +11,9 @@
 // 출력할 내용들의 좌상단(topleft) 좌표
 const POSITION resource_pos = { 0, 0 };
 const POSITION map_pos = { 1, 0 };
-
+const POSITION system_message_pos = { MAP_HEIGHT + 2, 2};
+const POSITION status_message_pos = { 5, MAP_WIDTH + 5 };
+const POSITION command_message_pos = { MAP_HEIGHT + 2, MAP_WIDTH + 5 };
 
 char backbuf[MAP_HEIGHT][MAP_WIDTH] = { 0 };
 char frontbuf[MAP_HEIGHT][MAP_WIDTH] = { 0 };
@@ -30,11 +32,30 @@ void display(
 	display_resource(resource);
 	display_map(map);
 	display_cursor(cursor);
-	// display_system_message()
-	// display_object_info()
-	// display_commands()
-	// ...
+    display_system_message("System initialized");   // 시스템 메시지 출력
+    display_status_message("Status OK");            // 상태창 메시지 출력
+    display_command_message("Enter command");       // 명령창 메시지 출력
+
 }
+
+void display_system_message(const char* message) {
+	set_color(COLOR_DEFAULT);
+	gotoxy(system_message_pos);
+	printf("System: %s\n", message ? message : "No system message");
+}
+
+void display_status_message(const char* message) {
+	set_color(COLOR_DEFAULT);
+	gotoxy(status_message_pos);
+	printf("Status: %s\n", message ? message : "No status");
+}
+
+void display_command_message(const char* message) {
+	set_color(COLOR_DEFAULT);
+	gotoxy(command_message_pos);
+	printf("Command: %s\n", message ? message : "No command");
+}
+
 
 void display_resource(RESOURCE resource) {
 	set_color(COLOR_RESOURCE);
