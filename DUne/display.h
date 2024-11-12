@@ -19,7 +19,7 @@
 #define COLOR_CURSOR     112 // 커서 색상
 #define COLOR_RESOURCE   14  // 자원 표시 색상 (노란색)
 #define COLOR_PLAYER     9   // 플레이어 본진 색상 (파란색)
-#define COLOR_PLATE      0   // 장판 색상 (검은색)
+#define COLOR_PLATE      2   // 장판 색상 (검은색)
 #define COLOR_AI         12  // AI 하베스터 색상 (빨간색)
 #define COLOR_SANDWORM   6   // 샌드웜 색상 (황토색)
 #define COLOR_SPICE      14  // 스파이스 색상 (노란색)
