@@ -81,7 +81,7 @@ typedef struct {
 } RESOURCE;
 
 
-// 대강 만들어 봤음. 기능 추가하면서 각자 수정할 것
+/*  ================= OBJECT_SAMPLE 구주체  ================= */
 typedef struct {
 	POSITION pos;		// 현재 위치(position)
 	POSITION dest;		// 목적지(destination)
@@ -89,7 +89,29 @@ typedef struct {
 	int move_period;	// '몇 ms마다 한 칸 움직이는지'를 뜻함
 	int next_move_time;	// 다음에 움직일 시간
 	int speed;
-
 } OBJECT_SAMPLE;
+
+
+/* ================= 건물 정보 구조체 ================= */
+typedef struct {
+	char name[25];        // 건물 이름
+	char shortcut;         // 단축키
+	char description[50];  // 설명
+	int build_cost;        // 건설 비용
+	int durability;        // 내구도
+} BUILDING;
+
+/* ================= 유닛 정보 구조체 ================= */
+typedef struct {
+	char name[20];       // 유닛 이름
+	char shortcut;       // 단축키
+	int production_cost; // 생산 비용
+	int population_cost; // 인구수 요구량
+	int movement_speed;  // 이동 속도
+	int attack_range;    // 공격 주기
+	int health;          // 체력
+	int damage;          // 공격력
+	int sight;
+} UNIT;
 
 #endif
