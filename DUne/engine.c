@@ -112,6 +112,7 @@ void init(void) {
 	map[1][obj.pos.row][obj.pos.column] = 'o';
 }
 
+
 // (가능하다면) 지정한 방향으로 커서 이동
 void cursor_move(DIRECTION dir) {
 	POSITION curr = cursor.current;
